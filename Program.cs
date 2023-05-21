@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace TicTacToe
@@ -22,6 +22,7 @@ namespace TicTacToe
 
         // Displays the board with any current values
         static void displayBoard(List<string> board) {
+            Console.Clear();
             for (int i = 0; i < 9; i++) {
                 Console.Write(board[i]);
                 if ((i + 1) % 3 != 0) {
