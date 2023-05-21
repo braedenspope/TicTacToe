@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
 
-namespace MyApp // Note: actual namespace depends on the project name.
+namespace TicTacToe
 {
     internal class Program
     {
+        // Main Function
         static void Main(string[] args)
         {
             startGame();
         }
+
+        // Initializes the board and loops through the game
         static void startGame() {
             List<string> board = new List<string> {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
             while (!gameDone(board)) {
@@ -17,6 +20,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             }
         }
 
+        // Displays the board with any current values
         static void displayBoard(List<string> board) {
             for (int i = 0; i < 9; i++) {
                 Console.Write(board[i]);
@@ -30,7 +34,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             }
         }
 
-
+        // Determines who's turn it is.
         static bool is_x_turn(List<string> board) {
             int xSpaces = 0;
             int oSpaces = 0;
@@ -50,6 +54,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             }
         }
 
+        // Runs the game, determining who's turn it is and what spot wants to be filled
         static void playGame(List<string> board) {
             if (is_x_turn(board)) {
                 Console.Write("X's turn to choose a square (1-9): ");
@@ -73,6 +78,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             }
         }
 
+        // Determines if there's a winner and who it is.
         static bool gameDone(List<string> board) {
             for (int row = 0; row < 3; row++) {
                 if (board[row * 3] == (board[row* 3 + 1]) && (board[row * 3] == board[row * 3 + 2])) {
